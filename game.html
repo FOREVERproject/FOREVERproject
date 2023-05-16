@@ -27,8 +27,8 @@
       <div id="header"></div>
       <div class="d-flex">
           <div>
-            <div class="d-flex flex-column flex-shrink-0  pt-2 px-0 mt-2" style="width: 280px;">
-
+            <div class="d-flex flex-column flex-shrink-0  pt-5 px-0 mt-4" style="width: 280px;">
+<!--
               <div class="card text-center mb-1">
                 <div class="card-header py-1 px-2 small font-thin ">
                   <div class="d-flex">
@@ -40,7 +40,7 @@
                   <span class="icon-font" style="position:relative; top:+5px;">&#xF1D3;</span>
                   <span class="cookieDisplay">1,947,543</span>
                 </span>
-                <!-- collapse - FATE -->
+
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                   <div class="card-body pt-1 pb-2 px-2">
                     <div class="mx-auto px-0" style="width:100%;">
@@ -58,7 +58,8 @@
                 </div>
 
               </div>
-              <!-- collapse - FATE -->
+            -->
+
               <div class="collapse multi-collapse" id="multiCollapseExample2">
                 <div class="flex-fill mx-auto" style="width:100%;">
                   <div class="px-0 content" style="">
@@ -83,40 +84,96 @@
               </div>
 
 
+              <div class=" d-none">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark py-1 active" id="story-tab" data-bs-toggle="tab" data-bs-target="#story-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                      <span class="font-thick small">AI</span>
+                    </button>
+                  </li>
+                  <li class="nav-item d-none" role="presentation">
+                    <button class="nav-link link-dark py-1" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                      <span class="font-thick text-muted small">STATS</span>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark py-1" id="system-tab" data-bs-toggle="tab" data-bs-target="#system-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                      <span class="font-thick text-muted small">SYS</span>
+                    </button>
+                  </li>
+                </ul>
+                <div class="tab-content mb-3" id="myTabContent" style="height:220px; overflow:auto;">
+                  <div class="tab-pane fade show active" id="story-tab-pane" role="tabpanel" aria-labelledby="story-tab" tabindex="0">
+                    <ul class="list-group list-group-flush mb-4 mx-0 px-0 lh-sm small">
+                      <li class="list-group-item px-0 py-1  text-muted">
+                        yet, it's emitting temporal essence
+                      </li>
+                      <li class="list-group-item px-0 py-1  text-muted">
+                        synthetic shapes are against gods wishes
+                      </li>
 
-
-              <nav class="mt-4">
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <button class="nav-link link-dark py-1 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
-                    <span class="font-thick small">SHAPE</span>
-                  </button>
-                  <button class="nav-link link-dark py-1 d-none" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                    <span class="font-thick small">BLESSINGS</span>
-                  </button>
-                </div>
-              </nav>
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                  <div class="list-group list-group-flush shopList">
+                    </ul>
+                  </div>
+                  <div class="tab-pane fade" id="stats-tab-pane" role="tabpanel" aria-labelledby="stats-tab" tabindex="0">
+                    <ul class="list-group list-group-flush mb-4 mx-0 px-0 lh-1 small font-thin">
+                      <li class="list-group-item text-muted">Temporal Essence: <b class="cookieDisplay">0</b></li>
+                      <li class="list-group-item text-muted">Per Action: <b class="cpcDisplay">0</b></li>
+                      <li class="list-group-item text-muted">Per Sec: <b class="cpsDisplay">0</b></li>
+                      <li class="list-group-item text-muted">Earned: <b class="earnedDisplay">0</b></li>
+                      <li class="list-group-item text-muted">Spent: <b class="spentDisplay">0</b></li>
+                      <li class="list-group-item text-muted">Actions: <b class="clickedDisplay">0</b></li>
+                    </ul>
+                  </div>
+                  <div class="tab-pane fade pt-3" id="system-tab-pane" role="tabpanel" aria-labelledby="system-tab" tabindex="0">
+                    <button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.openBox('import')">Import</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.openBox('export')">Export</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm mb-3 mr-3" onclick="game.saving.wipeSave()">Wipe Save</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.sysAddCookies()">Add Cookies</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
 
                   </div>
-
                 </div>
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
               </div>
+              <ul class="nav nav-tabs  d-none" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link link-dark py-1 active" id="research-tab" data-bs-toggle="tab" data-bs-target="#research-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                    <span class="font-thick small">RESEARCH</span>
+                  </button>
+                </li>
+                <li class="nav-item d-none" role="presentation">
+                  <button class="nav-link link-dark py-1" id="unlocks-tab" data-bs-toggle="tab" data-bs-target="#unlocks-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    <span class="font-thick small">UNLOCKS</span>
+                  </button>
+                </li>
+
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="research-tab-pane" role="tabpanel" aria-labelledby="research-tab" tabindex="0">
+                  <div class="list-group list-group-flush shop">
+                    <!-- RESEARCH UPGRADES GENERATED HERE -->
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="unlocks-tab-pane" role="tabpanel" aria-labelledby="unlocks-tab" tabindex="0">
+                  ...
+                </div>
+              </div>
+
+
             </div>
           </div>
 
 <!-- CENTER -->
 
 
-          <div class="flex-fill mx-auto text-center mt-5 px-3">
-            <!--
-            <div class="" style="">
-              <span class="fs-5 font-thick">R-TYPE</span>
-              <div class=""></div>
+          <div class="flex-fill mx-auto text-center mt-0 px-3">
+
+            <div class="my-3" style="">
+              <span class="icon-font fs-3" style="position:relative; top:+2px; left:+0px;">&#xF1D3;</span>
+              <span class="cookieDisplay fs-2 font-book" style="position:relative; left:-2px; letter-spacing: 3px;">1,947,543</span>
+              <div class="  font-book fs-6 lh-1 " style="font-weight:400; position:relative; top:-2px; font-size:1.2rem !important;letter-spacing: 0px;">TEMPORAL ESSENCE
+                <br><span class="fs-6 font-thin">per second: <span class="color-green fw-normal">+</span><span class="cpsDisplay color-green fw-normal"></span></span></div>
             </div>
-          -->
+
             <div id="shape-container" class="card shadow-sm mx-auto text-center p-0" style=" width:410px; height:410px; max-width: 410px; background-color:rgb(250, 250, 250); overflow:hidden;">
 
             </div>
@@ -198,80 +255,25 @@
 <!-- RIGHT -->
 
           <div>
-            <div class="d-flex flex-column flex-shrink-0 pt-2 px-0 mt-2" style="width: 280px;">
-              <div class="">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark py-1 active" id="story-tab" data-bs-toggle="tab" data-bs-target="#story-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                      <span class="font-thick small">AI</span>
-                    </button>
-                  </li>
-                  <li class="nav-item d-none" role="presentation">
-                    <button class="nav-link link-dark py-1" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                      <span class="font-thick text-muted small">STATS</span>
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark py-1" id="system-tab" data-bs-toggle="tab" data-bs-target="#system-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
-                      <span class="font-thick text-muted small">SYS</span>
-                    </button>
-                  </li>
-                </ul>
-                <div class="tab-content mb-3" id="myTabContent" style="height:220px; overflow:auto;">
-                  <div class="tab-pane fade show active" id="story-tab-pane" role="tabpanel" aria-labelledby="story-tab" tabindex="0">
-                    <ul class="list-group list-group-flush mb-4 mx-0 px-0 lh-sm small">
-                      <li class="list-group-item px-0 py-1  text-muted">
-                        yet, it's emitting temporal essence
-                      </li>
-                      <li class="list-group-item px-0 py-1  text-muted">
-                        synthetic shapes are against gods wishes
-                      </li>
-
-                    </ul>
-                  </div>
-                  <div class="tab-pane fade" id="stats-tab-pane" role="tabpanel" aria-labelledby="stats-tab" tabindex="0">
-                    <ul class="list-group list-group-flush mb-4 mx-0 px-0 lh-1 small font-thin">
-  										<li class="list-group-item text-muted">Temporal Essence: <b class="cookieDisplay">0</b></li>
-  										<li class="list-group-item text-muted">Per Action: <b class="cpcDisplay">0</b></li>
-  										<li class="list-group-item text-muted">Per Sec: <b class="cpsDisplay">0</b></li>
-  										<li class="list-group-item text-muted">Earned: <b class="earnedDisplay">0</b></li>
-  										<li class="list-group-item text-muted">Spent: <b class="spentDisplay">0</b></li>
-  										<li class="list-group-item text-muted">Actions: <b class="clickedDisplay">0</b></li>
-  									</ul>
-                  </div>
-                  <div class="tab-pane fade pt-3" id="system-tab-pane" role="tabpanel" aria-labelledby="system-tab" tabindex="0">
-                    <button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.openBox('import')">Import</button>
-  									<button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.openBox('export')">Export</button>
-  								  <button type="button" class="btn btn-outline-danger btn-sm mb-3 mr-3" onclick="game.saving.wipeSave()">Wipe Save</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm mb-3 mr-3" onclick="game.saving.sysAddCookies()">Add Cookies</button>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
-
-                  </div>
-                </div>
-              </div>
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link link-dark py-1 active" id="research-tab" data-bs-toggle="tab" data-bs-target="#research-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                    <span class="font-thick small">RESEARCH</span>
+            <div class="d-flex flex-column flex-shrink-0 pt-5 px-0 mt-4" style="width: 280px;">
+              <nav class=" d-none">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link link-dark py-1 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                    <span class="font-thick small">SHAPE</span>
                   </button>
-                </li>
-                <li class="nav-item d-none" role="presentation">
-                  <button class="nav-link link-dark py-1" id="unlocks-tab" data-bs-toggle="tab" data-bs-target="#unlocks-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                    <span class="font-thick small">UNLOCKS</span>
+                  <button class="nav-link link-dark py-1 d-none" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                    <span class="font-thick small">BLESSINGS</span>
                   </button>
-                </li>
-
-              </ul>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="research-tab-pane" role="tabpanel" aria-labelledby="research-tab" tabindex="0">
-                  <div class="list-group list-group-flush shop">
-                    <!-- RESEARCH UPGRADES GENERATED HERE -->
+                </div>
+              </nav>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                  <div class="list-group list-group-flush shopList">
                   </div>
                 </div>
-                <div class="tab-pane fade" id="unlocks-tab-pane" role="tabpanel" aria-labelledby="unlocks-tab" tabindex="0">
-                  ...
-                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
               </div>
+
             </div>
           </div>
       </div>

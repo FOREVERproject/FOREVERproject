@@ -37,10 +37,11 @@ let game
 */
 
 class Building {
-    constructor(name, id, icon, cost, effect, upgrades, locked = true) {
+    constructor(name, id, icon, color, cost, effect, upgrades, locked = true) {
         this.name = name;
         this.id = id;
         this.icon = icon;
+        this.color = color;
         this.amount = 0;
         this.originalCost = cost;
         this.cost = cost;
@@ -188,29 +189,27 @@ class Building {
           <div class="d-flex w-100 pb-0 align-items-center" >
             <span class="addText">
               <div class=" flex-grow-1 mb-1 ms-3 lh-1">
-                  <small class="text-muted font-thin">each produces
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low-fill align-bottom" viewBox="0 0 16 16">
-                    <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-                  </svg>${format(singleEffect)}/sec<br>
-                  all producing
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low-fill align-bottom" viewBox="0 0 16 16">
-                    <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-                  </svg>${format(this.effect)}/sec</small><br>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low-fill" viewBox="0 0 16 16">
-                  <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-                </svg><span class="small ">${format(this.cost)}</span>
+                  <small class="text-muted font-thin" style="position:relative; left:+32px;">
+                  <span class="icon-font small" style="position:relative; top:+4px; left:-1px;">&#xF1D3;</span>
+                  <span class="small">${format(singleEffect)}/sec = ONE</span><br>
+
+                  <span class="icon-font small" style="position:relative; top:+4px; left:-1px;">&#xF1D3;</span>
+                  <span class="small">${format(this.effect)}/sec = ALL</span>
+                  </small>
+                  <br>
+                  <small class="font-thin small fw-normal" style="font-size:0.8rem; position:relative; top:+1px; left:+3px;">Buy:</small>
+                  <span class="icon-font small" style="position:relative; top:+4px; left:-0px;">&#xF1D3;</span>
+                <small class="font-thin small fw-normal color-green cost-disabled" style="font-size:0.9rem; position:relative; top:+2px; left:-3px;">${format(this.cost)}</small>
               </div>
             </span>
             <div class="content-stuff icon-font" style="">
-              <div class="fs-4">${this.icon}</div>
+              <div class="fs-6 ${this.color}">${this.icon}</div>
             </div>
-            <div class="flex-grow-1 ms-3 content-stuff font-thin">${this.name}<br>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low-fill" viewBox="0 0 16 16">
-                <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-              </svg>
-              <small class="">${format(this.cost)}</small>
+            <div class="flex-grow-1 ms-3 content-stuff font-thin fs-6  fw-light" style="font-size:0.9rem!important;text-transform: uppercase; line-height: 1.1em;">${this.name}<br>
+              <span class="icon-font small" style="position:relative; top:+4px; left:-1px;">&#xF1D3;</span>
+              <small class="font-thin small fw-normal color-green cost-disabled" style="font-size:0.9rem; position:relative; top:+2px; left:-3px;">${format(this.cost)}</small>
             </div>
-            <div class="font-thin " style="font-weight: 100; font-size: 2.0rem;">${this.amount}</div>
+            <div class="font-book " style="font-weight: 300; font-size: 2.0rem;letter-spacing: 3px;">${this.amount}</div>
           </div>
         </a>
         `
@@ -243,22 +242,28 @@ class Building {
                       <div class="d-flex w-100 pb-0 align-items-center">
                         <span class="addText">
                           <div class=" flex-grow-1 mb-1 ms-3 lh-1">
-                              <small class="text-muted font-thin">${upgrade.desc}</small>
-                              <br>
 
-                              <span class="icon-font" style="position:relative; top:+3px; left:+2px;">&#xF1D3;</span>
-                              <span class="small ">${format(upgrade.cost)}</span>
-                              <span class="icon-font" style="position:relative; top:+3px; left:+5px;"> &#xF145;</span>
-                              <span class="small">essence increase 100%</span>
+                            <span style="position:relative; left:-8px;">
+                            <small class="font-thin small fw-normal" style="font-size:0.8rem; position:relative; top:+1px; left:+3px;">Upgrade: ${upgrade.desc}</small><br>
+                            <small class="text-muted font-thin" style="position:relative; left:+3px;">
+                              <span class="small ">${upgrade.flavor}</span>
+                            </small>
+                            <br>
+                            <small class="font-thin small fw-normal" style="font-size:0.8rem; position:relative; top:+1px; left:+3px;">Buy:</small>
+                            <span class="icon-font small" style="position:relative; top:+4px; left:-0px;">&#xF1D3;</span>
+                            <small class="font-thin small fw-normal color-green cost-disabled" style="font-size:0.9rem; position:relative; top:+2px; left:-3px;">${format(upgrade.cost)}</small>
+
+                            </span>
+
                           </div>
                         </span>
                         <div class="content-stuff icon-font" style="">
-                          <div class="fs-4">${this.icon}</div>
+                          <div class="fs-6" style="color:#9c78ff;">${this.icon}</div>
                         </div>
-                        <div class="flex-grow-1 ms-3 content-stuff font-thin"> ${upgrade.name}
+                        <div class="flex-grow-1 ms-3 content-stuff font-thin fs-6  fw-thin" style="font-size:0.9rem!important; line-height: 1.1em;"> ${upgrade.name}
                           <br>
-                          <span class="icon-font" style="position:relative; top:+3px; left:+2px;">&#xF1D3;</span>
-                          <small class="">${format(upgrade.cost)}</small>
+                          <span class="icon-font small" style="position:relative; top:+4px; left:-1px;">&#xF1D3;</span>
+                          <small class="font-thin small fw-normal color-green cost-disabled" style="font-size:0.9rem; position:relative; top:+2px; left:-3px;">${format(upgrade.cost)}</small>
                         </div>
                       </div>
                     </a>`;
@@ -299,11 +304,12 @@ class Building {
 }
 
 class Upgrade {
-    constructor(name, id, cost, desc, limit, special = false) {
+    constructor(name, id, cost, desc, flavor, limit, special = false) {
         this.name = name;
         this.id = id;
         this.cost = cost;
         this.desc = desc;
+        this.flavor = flavor;
         this.limit = limit;
         this.owned = false;
         this.special = special;
@@ -356,86 +362,86 @@ let game = {
     },
     buildings: [
         // Generate all buildings here
-        //building constructor(name, id, icon, cost, effect, upgrades, locked = true)
-        new Building('Essence Vortex', 'shape-infuser', '&#xF2FF;', 0.015, 0.0001, [
-            //upgrad constructor(name, id, cost, desc, limit, special = false) limit = required amount of building.
-            new Upgrade('Entanglement Regulator', '1-1', 0.1, 'Enables the Essence Vortex to access<br>multiple timelines simultaneously.', 0.001),
-            new Upgrade('Carpal tunnel prevention cream', '1-2', 0.5, 'Cursors and clicking are twice as efficient', 1),
-            new Upgrade('Ambidextrous', '1-3', 10, 'Cursors and clicking are twice as efficient', 10),
-            new Upgrade('SP1 Thousand Fingers', '1-4', 100, 'Mouse and cursors gain +0.1 cookies for every non-cursor building owned', 25, 0.1),
-            new Upgrade('SP2 Million Fingers', '1-5', 10000, 'Mouse and cursors gain +0.5 cookies for every non-cursor building owned', 50, 0.5),
-            new Upgrade('SP3 Billion Fingers', '1-6', 100000, 'Mouse and cursors gain +5 cookies for every non-cursor building owned', 100, 5),
-            new Upgrade('Trillion Fingers', '1-7', 1000000, 'Mouse and cursors gain +50 for every non-cursor building owned', 150, 50),
-            new Upgrade('Quadrillion Fingers', '1-8', 10000000, 'Mouse and cursors gain +500 cookies for each non-cursor building owned', 200, 500),
-            new Upgrade('Quintillion Fingers', '1-9', 10000000000, 'Mouse and cursors gain +5.000K for every non-cursor building owned', 250, 5000),
-            new Upgrade('Sextillion Fingers', '1-10', 10000000000000, ' Mouse and cursors gain +50.000K for every non-cursor building owned', 300, 50000),
-            new Upgrade('Septillion Fingers', '1-11', 10000000000000000000, 'Mouse and cursors gain +500.000K for every non-cursor building owned', 350, 500000),
-            new Upgrade('Octillion Fingers', '1-12', 10000000000000000000000, 'Mouse and cursors gain +5.000M for each non-cursor building owned', 400, 5000000)
+        //building constructor(name, id, icon, color, cost, effect, upgrades, locked = true)
+        new Building('Essence Vortex', 'shape-infuser', '&#xF2FF;', 'color-black', 0.015, 0.0001, [
+            //upgrad constructor(name, id, cost, desc, flavor, limit, special = false) limit = required amount of building.
+            new Upgrade('Entanglement Regulator', '1-1', 0.1, '<span class="icon-font" style="position:relative; top:+1px;">&#xF2FF;</span> <span class="color-green"style="font-size:0.9rem;">2x</span> production', 'Enables access to multiple timelines simultaneously.', 0.001),
+            new Upgrade('Chrono Amplification Module', '1-2', 0.5, 'item #X', 'Increases the potency and duration', 1),
+            new Upgrade('Ambidextrous', '1-3', 10, 'Upgrade: item #X', 'Cursors and clicking are twice as efficient<br>Cursors and clicking are twice as efficient', 10),
+            new Upgrade('SP1 Thousand Fingers', '1-4', 100, 'item #X', 'Mouse and cursors gain +0.1 cookies for every non-cursor building owned', 25, 0.1),
+            new Upgrade('SP2 Million Fingers', '1-5', 10000, 'Upgrade: item #X', 'Mouse and cursors gain +0.5 cookies for every non-cursor building owned', 50, 0.5),
+            new Upgrade('SP3 Billion Fingers', '1-6', 100000, 'Upgrade: item #X', 'Mouse and cursors gain +5 cookies for every non-cursor building owned', 100, 5),
+            new Upgrade('Trillion Fingers', '1-7', 1000000, 'Upgrade: item #X', 'Mouse and cursors gain +50 for every non-cursor building owned', 150, 50),
+            new Upgrade('Quadrillion Fingers', '1-8', 10000000, 'Upgrade: item #X', 'Mouse and cursors gain +500 cookies for each non-cursor building owned', 200, 500),
+            new Upgrade('Quintillion Fingers', '1-9', 10000000000, 'Upgrade: item #X', 'Mouse and cursors gain +5.000K for every non-cursor building owned', 250, 5000),
+            new Upgrade('Sextillion Fingers', '1-10', 10000000000000, 'Upgrade: item #X', ' Mouse and cursors gain +50.000K for every non-cursor building owned', 300, 50000),
+            new Upgrade('Septillion Fingers', '1-11', 10000000000000000000, 'Upgrade: item #X', 'Mouse and cursors gain +500.000K for every non-cursor building owned', 350, 500000),
+            new Upgrade('Octillion Fingers', '1-12', 10000000000000000000000, 'Upgrade: item #X', 'Mouse and cursors gain +5.000M for each non-cursor building owned', 400, 5000000)
         ], false),
-        new Building('Shape Infuser', 'essence-vortex', '&#xF625;', 0.1, 0.001, [
-            new Upgrade('Forwards from grandma', '2-1', 1, 'Grandmas are twice as efficient', 1),
-            new Upgrade('Steel-plated rolling pins', '2-2', 5, 'Grandmas are twice as efficient', 5),
-            new Upgrade('Lubricated dentures', '2-3', 50, 'Grandmas are twice as efficient', 25),
-            new Upgrade('Prune juice', '2-4', 5000, 'Grandmas are twice as efficient', 50),
-            new Upgrade('Double-thick glasses', '2-5', 500000, 'Grandmas are twice as efficient', 100),
-            new Upgrade('Aging agents', '2-6', 50000000, 'Grandmas are twice as efficient', 150),
-            new Upgrade('Xtreme walkers', '2-7', 50000000000, 'Grandmas are twice as efficient', 200),
-            new Upgrade('The Unbridling', '2-8', 50000000000000, 'Grandmas are twice as efficient', 250),
-            new Upgrade('Reverse dementia', '2-9', 50000000000000000000, 'Grandmas are twice as efficient', 300),
-            new Upgrade('Timeproof hair dyes', '2-10', 50000000000000000000000, 'Grandmas are twice as efficient', 350),
-            new Upgrade('Good manners', '2-11', 500000000000000000000000000, 'Grandmas are twice as efficient', 400),
+        new Building('Shape Infuser', 'essence-vortex', '&#xF625;', 'color-black', 0.1, 0.001, [
+            new Upgrade('Material Fusion Chamber', '2-1', 1, '<span class="icon-font" style="position:relative; top:+1px;">&#xF625;</span> <span class="color-green"style="font-size:0.9rem;">2x</span> production', 'Create unique and durable composite structures.', 1),
+            new Upgrade('Spatial Expansion Matrix', '2-2', 5, '<span class="icon-font" style="position:relative; top:+1px;">&#xF625;</span> <span class="color-green"style="font-size:0.9rem;">2x</span> production', 'Increases the size and volume of objects created.', 5),
+            new Upgrade('Lubricated dentures', '2-3', 50, 'Upgrade: item #X', 'Grandmas are twice as efficient', 25),
+            new Upgrade('Prune juice', '2-4', 5000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 50),
+            new Upgrade('Double-thick glasses', '2-5', 500000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 100),
+            new Upgrade('Aging agents', '2-6', 50000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 150),
+            new Upgrade('Xtreme walkers', '2-7', 50000000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 200),
+            new Upgrade('The Unbridling', '2-8', 50000000000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 250),
+            new Upgrade('Reverse dementia', '2-9', 50000000000000000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 300),
+            new Upgrade('Timeproof hair dyes', '2-10', 50000000000000000000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 350),
+            new Upgrade('Good manners', '2-11', 500000000000000000000000000, 'Upgrade: item #X', 'Grandmas are twice as efficient', 400),
         ]),
-        new Building('Temporal Chip', 'temporal-chip', '&#xF2D6;', 1.1, 0.008, [
-            new Upgrade('Cheap hoes', '3-1', 11, 'Farms are twice as efficient', 1),
-            new Upgrade('Fertilizer', '3-2', 55, 'Farms are twice as efficient', 5),
-            new Upgrade('Biscuit Trees', '3-3', 550, 'Farms are twice as efficient', 25),
-            new Upgrade('Genetically-modified Biscuits', '3-4', 55000, 'Farms are twice as efficient', 50),
-            new Upgrade('Gingerbread scarecrows', '3-5', 5500000, 'Farms are twice as efficient', 100),
-            new Upgrade('Pulsar sprinklers', '3-6', 550000000, 'Farms are twice as efficient', 150),
-            new Upgrade('Fudge fungus', '3-7', 550000000000, 'Farms are twice as efficient', 200),
-            new Upgrade('Wheat triffids', '3-8', 550000000000000, 'Farms are twice as efficient', 250),
-            new Upgrade('Humane pesticides', '3-9', 550000000000000000000, 'Farms are twice as efficient', 300),
-            new Upgrade('Barnstars', '3-10', 550000000000000000000000, 'Ah, yes. These help quite a bit. Somehow.', 350),
-            new Upgrade('Lindworms', '3-11', 5500000000000000000000000000, 'You have to import these from far up north, but they really help areate the soil', 400)
+        new Building('Temporal Chip', 'temporal-chip', '&#xF2D6;', 'color-black', 1.1, 0.008, [
+            new Upgrade('Cheap hoes', '3-1', 11, 'item #X', 'Farms are twice as efficient', 1),
+            new Upgrade('Fertilizer', '3-2', 55, 'item #X', 'Farms are twice as efficient', 5),
+            new Upgrade('Biscuit Trees', '3-3', 550, 'Upgrade: item #X', 'Farms are twice as efficient', 25),
+            new Upgrade('Genetically-modified Biscuits', '3-4', 55000, 'Upgrade: item #X', 'Farms are twice as efficient', 50),
+            new Upgrade('Gingerbread scarecrows', '3-5', 5500000, 'Upgrade: item #X', 'Farms are twice as efficient', 100),
+            new Upgrade('Pulsar sprinklers', '3-6', 550000000, 'Upgrade: item #X', 'Farms are twice as efficient', 150),
+            new Upgrade('Fudge fungus', '3-7', 550000000000, 'Upgrade: item #X', 'Farms are twice as efficient', 200),
+            new Upgrade('Wheat triffids', '3-8', 550000000000000, 'Upgrade: item #X', 'Farms are twice as efficient<br>Farms are twice as efficient', 250),
+            new Upgrade('Humane pesticides', '3-9', 550000000000000000000, 'Upgrade: item #X', 'Farms are twice as efficient', 300),
+            new Upgrade('Barnstars', '3-10', 550000000000000000000000, 'Upgrade: item #X', 'Ah, yes. These help quite a bit. Somehow.', 350),
+            new Upgrade('Lindworms', '3-11', 5500000000000000000000000000, 'Upgrade: item #X', 'You have to import these from far up north, but they really help areate the soil', 400)
         ]),
-        new Building('Fabric Folding', 'fabric-folding', '&#xF45B;', 12, 0.047, [
-            new Upgrade('Sugar gas', '4-1', 120000, 'Mines are twice as efficient', 1),
-            new Upgrade('Megadrill', '4-2', 600000, 'Mines are twice as efficient', 5),
-            new Upgrade('Ultradrill', '4-3', 6000000, 'Mines are twice as efficient', 25),
-            new Upgrade('Ultimadrill', '4-4', 600000000, 'Mines are twice as efficient', 50),
-            new Upgrade('H-bomb Mining', '4-5', 60000000000, 'Mines are twice as efficient', 100),
-            new Upgrade('Coreforge', '4-6', 6000000000000, 'Mines are twice as efficient', 150),
-            new Upgrade('Planetsplitters', '4-7', 6000000000000000, 'Mines are twice as efficient', 200),
-            new Upgrade('Canola oil wells', '4-8', 6000000000000000000, 'Mines are twice as efficient', 250),
-            new Upgrade('Mole People', '4-9', 6000000000000000000000, 'Mines are twice as efficient', 300),
-            new Upgrade('Mine canaries', '4-10', 6000000000000000000000000, 'Mines are twice as efficient', 350),
-            new Upgrade('Bore again', '4-11', 60000000000000000000000000000, 'Mines are twice as efficient', 400)
+        new Building('Fabric Folding', 'fabric-folding', '&#xF45B;', 'color-red', 12, 0.047, [
+            new Upgrade('Sugar gas', '4-1', 120000, 'Upgrade: item #X', 'Mines are twice as efficient', 1),
+            new Upgrade('Megadrill', '4-2', 600000, 'Upgrade: item #X', 'Mines are twice as efficient', 5),
+            new Upgrade('Ultradrill', '4-3', 6000000, 'Upgrade: item #X', 'Mines are twice as efficient', 25),
+            new Upgrade('Ultimadrill', '4-4', 600000000, 'Upgrade: item #X', 'Mines are twice as efficient', 50),
+            new Upgrade('H-bomb Mining', '4-5', 60000000000, 'Upgrade: item #X', 'Mines are twice as efficient<br>Mines are twice as efficient', 100),
+            new Upgrade('Coreforge', '4-6', 6000000000000, 'Upgrade: item #X', 'Mines are twice as efficient<br>Mines are twice as efficient', 150),
+            new Upgrade('Planetsplitters', '4-7', 6000000000000000, 'Upgrade: item #X', 'Mines are twice as efficient<br>Mines are twice as efficient', 200),
+            new Upgrade('Canola oil wells', '4-8', 6000000000000000000, 'Upgrade: item #X', 'Mines are twice as efficient<br>Mines are twice as efficient', 250),
+            new Upgrade('Mole People', '4-9', 6000000000000000000000, 'Upgrade: item #X', 'Mines are twice as efficient', 300),
+            new Upgrade('Mine canaries', '4-10', 6000000000000000000000000, 'Upgrade: item #X', 'Mines are twice as efficient', 350),
+            new Upgrade('Bore again', '4-11', 60000000000000000000000000000, 'Upgrade: item #X', 'Mines are twice as efficient', 400)
         ]),
-        new Building('Memories Chip', 'memories-chip', '&#xF6E3;', 130, 0.26, [
-            new Upgrade('Sturdier conveyor belts', '5-1', 1300000, 'Factories are twice as efficient', 1),
-            new Upgrade('Child labor', '5-2', 6500000, 'Factories are twice as efficient', 5),
-            new Upgrade('Sweatshop', '5-3', 65000000, 'Factories are twice as efficient', 25),
-            new Upgrade('Radium reactors', '5-4', 6500000000, 'Factories are twice as efficient', 50),
-            new Upgrade('Recombobulators', '5-5', 650000000000, 'Factories are twice as efficient', 100),
-            new Upgrade('Deep-bake process', '5-6', 65000000000000, 'Factories are twice as efficient', 150),
-            new Upgrade('Cyborg workforce', '5-7', 65000000000000000, 'Factories are twice as efficient', 200),
-            new Upgrade('78-hour days', '5-8', 65000000000000000000, 'Factories are twice as efficient', 250),
-            new Upgrade('Machine learning', '5-9', 65000000000000000000000, 'Factories are twice as efficient', 300),
-            new Upgrade('Brownie point system', '5-10', 65000000000000000000000000, 'Factories are twice as efficient', 350),
-            new Upgrade('"Volunteer" interns', '5-11', 650000000000000000000000000000, 'Factories are twice as efficient', 400)
+        new Building('Memories Chip', 'memories-chip', '&#xF6E3;', 'color-red', 130, 0.26, [
+            new Upgrade('Sturdier conveyor belts', '5-1', 1300000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 1),
+            new Upgrade('Child labor', '5-2', 6500000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 5),
+            new Upgrade('Sweatshop', '5-3', 65000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 25),
+            new Upgrade('Radium reactors', '5-4', 6500000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 50),
+            new Upgrade('Recombobulators', '5-5', 650000000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 100),
+            new Upgrade('Deep-bake process', '5-6', 65000000000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 150),
+            new Upgrade('Cyborg workforce', '5-7', 65000000000000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 200),
+            new Upgrade('78-hour days', '5-8', 65000000000000000000, 'Upgrade: item #X', 'Factories are twice as efficient<br>Factories are twice as efficient', 250),
+            new Upgrade('Machine learning', '5-9', 65000000000000000000000, 'Upgrade: item #X', 'Factories are twice as efficient', 300),
+            new Upgrade('Brownie point system', '5-10', 65000000000000000000000000, 'Upgrade: item #X', 'Factories are twice as efficient', 350),
+            new Upgrade('"Volunteer" interns', '5-11', 650000000000000000000000000000, 'Upgrade: item #X', 'Factories are twice as efficient', 400)
         ]),
-        new Building('Cold Storage', 'cold-storage', '&#xF65A;', 1400, 1.4, [
-            new Upgrade('Taller Tellers', '6-1', 14000000, 'Banks are twice as efficient', 1),
-            new Upgrade('Scissor-resistant Credit Cards', '6-2', 70000000, 'Banks are twice as efficient', 5),
-            new Upgrade('Acid-proof vaults', '6-3', 700000000, 'Banks are twice as efficient', 25),
-            new Upgrade('Chocolate coins', '6-4', 70000000000, 'Banks are twice as efficient', 50),
-            new Upgrade('Exponential interest rates', '6-5', 7000000000000, 'Banks are twice as efficient', 100),
-            new Upgrade('Financial zen', '6-6', 700000000000000, 'Banks are twice as efficient', 150),
-            new Upgrade('Way of the wallet', '6-7', 700000000000000000, 'Banks are twice as efficient', 200),
-            new Upgrade('The stuff rationale', '6-8', 700000000000000000000, 'Banks are twice as efficient', 250),
-            new Upgrade('Edible money', '6-9', 700000000000000000000, 'Banks are twice as efficient', 300),
-            new Upgrade('Grand supercycle', '6-10', 700000000000000000000000, 'Banks are twice as efficient', 350),
-            new Upgrade('Rules of acquisition', '6-11', 7000000000000000000000000000, 'Banks are twice as efficient', 400)
+        new Building('Cold Storage', 'cold-storage', '&#xF65A;', 'color-red', 1400, 1.4, [
+            new Upgrade('Taller Tellers', '6-1', 14000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 1),
+            new Upgrade('Scissor-resistant Credit Cards', '6-2', 70000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 5),
+            new Upgrade('Acid-proof vaults', '6-3', 700000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 25),
+            new Upgrade('Chocolate coins', '6-4', 70000000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 50),
+            new Upgrade('Exponential interest rates', '6-5', 7000000000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 100),
+            new Upgrade('Financial zen', '6-6', 700000000000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 150),
+            new Upgrade('Way of the wallet', '6-7', 700000000000000000, 'Upgrade: item #X', 'Banks are twice as efficient<br>Banks are twice as efficient', 200),
+            new Upgrade('The stuff rationale', '6-8', 700000000000000000000, 'Upgrade: item #X', 'Banks are twice as efficient', 250),
+            new Upgrade('Edible money', '6-9', 700000000000000000000, 'Upgrade: item #X','Banks are twice as efficient', 300),
+            new Upgrade('Grand supercycle', '6-10', 700000000000000000000000, 'Upgrade: item #X', 'Banks are twice as efficient', 350),
+            new Upgrade('Rules of acquisition', '6-11', 7000000000000000000000000000, 'Upgrade: item #X', 'Banks are twice as efficient', 400)
         ])
         /*
         ,

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FOREVER Project</title>
+  <link rel="stylesheet" type="text/css"  href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.typekit.net/vll6xty.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.ico">
+  <script>
+  $(function(){
+    $("#header").load("header.html");
+  });
+  $(function(){
+    $("#footer").load("footer.html");
+  });
+  </script>
+  <style>
+    body{
+        margin: 0; /* Remove default margin */
+    }
+    iframe{
+        display: block;  /* iframes are inline by default */
+        height: 90vh;  /* Set height to 100% of the viewport height */
+        width: 100vw;  /* Set width to 100% of the viewport width */
+        border: none; /* Remove default border */
+        background: lightyellow; /* Just for styling */
+        position: relative;
+        top:-4px;
+    }
+</style>
+</head>
+  <body class="px-0" style="background-color:#fff;">
+
+
+        <div id="header"></div>
+
+    <iframe
+      width="100%"
+      height="100%"
+      src="https://miro.com/app/live-embed/uXjVM3oSmcI=/?moveToViewport=-615,-442,1229,882&embedId=255959910276&embedAutoplay=true"
+      frameborder="0"
+      scrolling="no"
+      allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen>
+    </iframe>
+    <div id="footer" class="p-0 m-0"></div>
+  </body>
+</html>

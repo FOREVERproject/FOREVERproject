@@ -14,26 +14,70 @@ body {
      src: url('../fonts/MADESoulmaze.otf') format('truetype');
   }
 
+
+.color-white{
+  color: #fff;
+}
+.color-white-bg{
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width:22px;
+}
 .color-black{
   color: #000000;
+}
+.color-black-bg{
+  background-color: #000000;
+  border: 1px solid #000;
+  min-width:22px;
 }
 .color-red{
   color: #EA3323;
 }
+.color-red-bg{
+  background-color:#EA3323 !important;
+  border: 1px solid #000;
+  min-width:22px;
+}
 .color-blue{
   color: #007CF3;
+}
+.color-blue-bg{
+  background-color: #007CF3;
+  border: 1px solid #000;
+  min-width:22px;
 }
 .color-yellow{
   color: #FFBB25;
 }
+.color-yellow-bg{
+  background-color: #FFBB25;
+  border: 1px solid #000;
+  min-width:22px;
+}
 .color-green{
   color: #1FB254;
+}
+.color-green-bg{
+  background-color: #1FB254;
+  border: 1px solid #000;
+  min-width:22px;
 }
 .color-orange{
   color: #ff8c01;
 }
+.color-orange-bg{
+  background-color: #ff8c01;
+  border: 1px solid #000;
+  min-width:22px;
+}
 .color-purple{
   color: #9c78ff;
+}
+.color-purple-bg{
+  background-color: #9c78ff;
+  border: 1px solid #000;
+  min-width:22px;
 }
 
  .font-soulmaze {
@@ -255,8 +299,8 @@ html {
 }
 
 .box-shadow{
-  -webkit-box-shadow: 0 3px 2px rgba(72,78,85,.1);
-	box-shadow: 0 3px 2px rgba(72,78,85,.1);
+  -webkit-box-shadow: 0 1px 1px rgba(72,78,85,.1);
+	box-shadow: 0 1px 1px rgba(72,78,85,.1);
 
   /* box-shadow: 0 .125rem .25rem rgba(33,37,41,.275)!important */
 	/* box-shadow: 0 1px 1px rgba(72,78,85,.2); */
